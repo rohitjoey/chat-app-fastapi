@@ -9,7 +9,6 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     password: str
 
-
 class UserAuth(BaseModel):
     email: str
     password: str
@@ -17,6 +16,10 @@ class UserAuth(BaseModel):
 
 class User(UserBase):
     id: int
-
     class Config:
         from_attributes = True
+
+
+class UserWithToken(BaseModel):
+    token: str
+    user: User
